@@ -1,0 +1,179 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Veterinaria",
+    "dateExported": "2023-11-07T01:23:32.122Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "fe524056-58d5-4e75-b982-fb38af830e75",
+            "colId": "61bca52c-3b50-43e7-ba2a-c69337feb51b",
+            "containerId": "",
+            "name": "localhost:3000/api/animais/",
+            "url": "localhost:3000/api/animais/",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-11-07T01:03:41.014Z",
+            "modified": "2023-11-07T01:03:41.014Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Pilotinho\",\n  \"especie\": \"gato\",\n  \"raca\" : \"Russian Blue\",\n  \"cor\": \"Cinza\",\n  \"nascimento\": \"2005\",\n  \"proprietario\": \"Vicente\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "22d3fab9-f723-4bb5-9aab-f5dd379df5ab",
+            "colId": "61bca52c-3b50-43e7-ba2a-c69337feb51b",
+            "containerId": "",
+            "name": "localhost:3000/api/animais/",
+            "url": "localhost:3000/api/animais/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-11-07T01:03:51.334Z",
+            "modified": "2023-11-07T01:03:51.334Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Conan\",\n  \"especie\": \"cão\",\n  \"raca\" : \"Pug\",\n  \"cor\": \"Preto\",\n  \"nascimento\": \"2020\",\n  \"proprietario\": \"Miguel\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ab7425a4-ee87-4567-840b-69b221a273d1",
+            "colId": "61bca52c-3b50-43e7-ba2a-c69337feb51b",
+            "containerId": "",
+            "name": "localhost:3000/api/animais/2",
+            "url": "localhost:3000/api/animais/2",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-11-07T01:04:01.481Z",
+            "modified": "2023-11-07T01:04:01.481Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c4e5c86e-4971-428d-af50-cca9bf89e6d5",
+            "colId": "61bca52c-3b50-43e7-ba2a-c69337feb51b",
+            "containerId": "",
+            "name": "localhost:3000/api/animais/2",
+            "url": "localhost:3000/api/animais/2",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-11-07T01:04:08.688Z",
+            "modified": "2023-11-07T01:04:08.688Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Gordo\",\n  \"especie\": \"gato\",\n  \"raca\": \"Russian Blue\",\n  \"cor\": \"Cinza\",\n  \"nascimento\": \"2005\",\n  \"proprietario\": \"Vicente\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "3f2af42b-150e-43c7-b074-226a6ba89d7f",
+            "colId": "61bca52c-3b50-43e7-ba2a-c69337feb51b",
+            "containerId": "",
+            "name": "localhost:3000/api/animais/1",
+            "url": "localhost:3000/api/animais/1",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-11-07T01:04:13.646Z",
+            "modified": "2023-11-07T01:04:13.646Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a24c0bb8-e855-422a-aa6e-999f659a42f3",
+            "colId": "61bca52c-3b50-43e7-ba2a-c69337feb51b",
+            "containerId": "",
+            "name": "localhost:3000/api/proprietarios",
+            "url": "localhost:3000/api/proprietarios",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-11-07T01:22:33.772Z",
+            "modified": "2023-11-07T01:22:33.772Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Anna\",\n  \"cpf\": \"999.999.999-99\",\n  \"telefone\" : \"51 8122.0944\",\n  \"endereço\": \"Luiz Afonso, 592. Porto Alegre\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f5cf5af9-6422-410e-8689-5aa26de314ed",
+            "colId": "61bca52c-3b50-43e7-ba2a-c69337feb51b",
+            "containerId": "",
+            "name": "localhost:3000/api/proprietarios",
+            "url": "localhost:3000/api/proprietarios",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-11-07T01:22:53.204Z",
+            "modified": "2023-11-07T01:22:53.204Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4cb0e5f6-22b7-4bb9-9ad9-3452344deb0f",
+            "colId": "61bca52c-3b50-43e7-ba2a-c69337feb51b",
+            "containerId": "",
+            "name": "localhost:3000/api/proprietarios/1",
+            "url": "localhost:3000/api/proprietarios/1",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-11-07T01:23:02.294Z",
+            "modified": "2023-11-07T01:23:02.294Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Anna Carolina\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "976f0418-f3d1-4cb1-973d-98fbd935a6b0",
+            "colId": "61bca52c-3b50-43e7-ba2a-c69337feb51b",
+            "containerId": "",
+            "name": "localhost:3000/api/proprietarios/1",
+            "url": "localhost:3000/api/proprietarios/1",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2023-11-07T01:23:08.481Z",
+            "modified": "2023-11-07T01:23:08.481Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Anna Maria\",\n  \"cpf\": \"999.999.999-99\",\n  \"telefone\" : \"51 8122.0944\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d520f5c5-e64e-488e-b2c8-f901fe070f3e",
+            "colId": "61bca52c-3b50-43e7-ba2a-c69337feb51b",
+            "containerId": "",
+            "name": "localhost:3000/api/proprietarios/2",
+            "url": "localhost:3000/api/proprietarios/2",
+            "method": "DELETE",
+            "sortNum": 100000,
+            "created": "2023-11-07T01:23:14.879Z",
+            "modified": "2023-11-07T01:23:14.879Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
