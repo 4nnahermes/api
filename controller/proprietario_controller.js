@@ -1,25 +1,26 @@
 const proprietarioService = require('../service/proprietario_service')
 
-function listar(req, res) {
-    const listaProprietarios = proprietarioService.listar();
+async function listar(req, res) {
+    const listaProprietarios = await proprietarioService.listar();
     res.json(listaProprietarios);
 }
 
-function inserir(req, res) {
+async function inserir(req, res) {
     let proprietario = req.body;
     try {
-        proprietarioService.inserir(proprietario);
-        res.status(201).json({ msg: 'Inserido com sucesso!'});
-    }
-    catch (err) {
+        const proprietarioInserido = await proprietarioService.inserir(proprietario);
+        console.log('Código de Status:', 201);
+        res.status(201).json(proprietarioInserido);
+    } catch (err) {
+        console.error('Erro:', err);
         res.status(err.id).json({ msg: err.message });
     }
 }
 
-function buscarPorId(req, res) {
+async function buscarPorId(req, res) {
     const id = +req.params.id;
     try {
-        const prop = proprietarioService.buscarPorId(id);
+        const prop = await proprietarioService.buscarPorId(id);
         res.json(prop);
     }
     catch(err) {
@@ -27,27 +28,37 @@ function buscarPorId(req, res) {
     }
 }
 
-function atualizar(req, res) {
+async function atualizar(req, res) {
     const id = +req.params.id;
     let proprietario = req.body;
 
     try {
-        proprietarioService.atualizar(id, proprietario);
-        res.json({msg: 'Proprietário atualizado com sucesso!'});
+        const proprietarioAtualizado = await proprietarioService.atualizar(id, proprietario);
+        res.json(proprietarioAtualizado);
     }
     catch (err) {
         res.status(err.id).json({msg: err.message});
     }
 }
 
-function deletar(req, res) {
+async function deletar(req, res) {
     const id = +req.params.id;
     try {
-        const proprietarioDeletado = proprietarioService.deletar(id);
+        const proprietarioDeletado = await proprietarioService.deletar(id);
         res.json(proprietarioDeletado);
     }
     catch (err) {
         res.status(err.id).json({msg: err.message});
+    }
+}
+
+async function pesquisarPorLikeNome(req, res) {
+    const nome = req.query.nome; 
+    try {
+        const proprietariosEncontrados = await proprietarioService.pesquisarPorNomeLike(nome);
+        res.json(proprietariosEncontrados);
+    } catch (err) {
+        res.status(err.id).json({ msg: err.message });
     }
 }
 
@@ -57,4 +68,5 @@ module.exports = {
     buscarPorId,
     atualizar,
     deletar,
+    pesquisarPorLikeNome
 }
