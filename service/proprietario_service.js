@@ -23,8 +23,8 @@ async function inserir(proprietario) {
 }
 
 
-async function buscarPorId(id) {
-    const proprietario = await proprietarioRepository.buscarPorId(id);
+async function buscarPorId(id_proprietario) {
+    const proprietario = await proprietarioRepository.buscarPorId(id_proprietario);
     if (proprietario) {
         return proprietario;
     }
@@ -33,21 +33,21 @@ async function buscarPorId(id) {
     }
 }
 
-async function atualizar(id, proprietarioAtualizado) {
-    const proprietario = await proprietarioRepository.buscarPorId(id);
+async function atualizar(id_proprietario, proprietarioAtualizado) {
+    const proprietario = await proprietarioRepository.buscarPorId(id_proprietario);
     if (!proprietario) {
         throw { id: 404, message: "Proprietário não encontrado." }
     }
     if (proprietarioAtualizado && proprietarioAtualizado.nome && proprietarioAtualizado.cpf && proprietarioAtualizado.telefone && proprietarioAtualizado.endereco) {
-        return await proprietarioRepository.atualizar(id, proprietarioAtualizado);
+        return await proprietarioRepository.atualizar(id_proprietario, proprietarioAtualizado);
     }
     else {
         throw { id: 400, message: "Nome, CPF, telefone e endereço do proprietário são obrigatórios." }
     }
 }
 
-async function deletar(id) {
-    const proprietarioDeletado = await proprietarioRepository.deletar(id);
+async function deletar(id_proprietario) {
+    const proprietarioDeletado = await proprietarioRepository.deletar(id_proprietario);
     if (proprietarioDeletado) {
         return proprietarioDeletado;
     }
@@ -56,27 +56,10 @@ async function deletar(id) {
     }
 }
 
-async function pesquisarPorLikeNome(nome) {
-    const proprietariosEncontrados = await proprietarioRepository.pesquisarPorLikeNome(nome);
-
-    if (proprietariosEncontrados.length > 0) {
-        return proprietariosEncontrados;
-    } else {
-        const proprietariosPorSimilaridade = await proprietarioRepository.pesquisarPorSimilaridadeNome(nome);
-
-        if (proprietariosPorSimilaridade.length > 0) {
-            return proprietariosPorSimilaridade;
-        } else {
-            throw { id: 404, message: "Nenhum proprietário encontrado com o nome fornecido." };
-        }
-    }
-}
-
 module.exports = {
     listar,
     inserir,
     buscarPorId,
     atualizar,
-    deletar,
-    pesquisarPorLikeNome
+    deletar
 }

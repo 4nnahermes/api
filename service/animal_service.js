@@ -1,28 +1,27 @@
+const { Client } = require('pg');
 const animalRepository = require('../repository/animal_repository')
-const proprietarioRepository = require('../repository/proprietario_repository')
+const proprietariorepository = require('../repository/proprietario_repository')
 
-
-function listar() {
-    return animalRepository.listar();
+async function listar() {
+    return await animalRepository.listar();
 }
 
-function inserir(animal) {
-    if (animal && animal.nome && animal.especie && animal.raca && animal.cor && animal.proprietario) {
-        animalRepository.inserir(animal);
+async function inserir(animal) {
+    if (animal && animal.nome && animal.especie && animal.raca && animal.cor && animal.id_proprietario) {
 
-        const proprietario = proprietarioRepository.buscarPorId(animal.proprietario);
-
+        const proprietario = await proprietariorepository.buscarPorId(animal.id_proprietario);
         if (proprietario) {
-            proprietario.animais.push(animal);
+            return await animalRepository.inserir(animal);
+        } else {
+            throw { id: 404, message: "Proprietário não encontrado." };
         }
-    }
-    else {
-        throw { id: 400, message: "Todos dados devem ser preenchidos." };
+    } else {
+        throw { id: 400, message: "Todos dados do animal devem ser preenchidos." };
     }
 }
 
-function buscarPorId(id) {
-    const animal = animalRepository.buscarPorId(id);
+async function buscarPorId(id) {
+    const animal = await animalRepository.buscarPorId(id);
     if (animal) {
         return animal;
     }
@@ -31,41 +30,22 @@ function buscarPorId(id) {
     }
 }
 
-function atualizar(id, animalAtualizado) {
-    const animal = animalRepository.buscarPorId(id);
+async function atualizar(id, animalAtualizado) {
+    const animal = await animalRepository.buscarPorId(id);
     if (!animal) {
         throw { id: 404, message: "Pet não encontrado." }
     }
 
-    if (animalAtualizado && animalAtualizado.nome) {
-        animalRepository.atualizar(id, animalAtualizado);
-        
-        const proprietario = proprietarioRepository.buscarPorId(animal.proprietario);
-        const animalIndex = proprietario.animais.findIndex(a => a.id === id);
-        
-        if (animalIndex !== -1) {
-            proprietario.animais[animalIndex] = animalAtualizado;
-        }
-
-        proprietarioRepository.atualizar(proprietario.id, proprietario);
+    if (animalAtualizado && animalAtualizado.nome && animalAtualizado.especie && animalAtualizado.raca && animalAtualizado.cor && animalAtualizado.id_proprietario) {
+        return await animalRepository.atualizar(id, animalAtualizado);
     } else {
-        throw { id: 400, message: "Nome do pet é obrigatório." }
+        throw { id: 400, message: "Todos campos devem ser preenchidos" }
     }
 }
 
-function deletar(id) {
-    const animalDeletado = animalRepository.deletar(id);
+async function deletar(id) {
+    const animalDeletado = await animalRepository.deletar(id);
     if (animalDeletado) {
-        const proprietario = proprietarioRepository.buscarPorId(animalDeletado.proprietario);
-
-        if (proprietario) {
-            const animalIndex = proprietario.animais.findIndex(a => a.id === id);
-
-            if (animalIndex !== -1) {
-                proprietario.animais.splice(animalIndex, 1);
-                proprietarioRepository.atualizar(proprietario.id, proprietario);
-            }
-        }
         return animalDeletado;
     } else {
         throw { id: 404, message: "Pet não encontrado." };

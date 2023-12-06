@@ -104,7 +104,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nome\": \"Anna\",\n  \"cpf\": \"999.999.999-99\",\n  \"telefone\" : \"51 8122.0944\",\n  \"endereço\": \"Luiz Afonso, 592. Porto Alegre\"\n}",
+                "raw": "{\n  \"nome\": \"Anna\",\n  \"cpf\": \"999.999.999-99\",\n  \"telefone\" : \"51 8122.0944\",\n  \"endereco\": \"Luiz Afonso, 592. Porto Alegre\"\n}",
                 "form": []
             },
             "tests": []

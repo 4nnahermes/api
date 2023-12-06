@@ -18,9 +18,9 @@ async function inserir(req, res) {
 }
 
 async function buscarPorId(req, res) {
-    const id = +req.params.id;
+    const id_proprietario = +req.params.id_proprietario;
     try {
-        const prop = await proprietarioService.buscarPorId(id);
+        const prop = await proprietarioService.buscarPorId(id_proprietario);
         res.json(prop);
     }
     catch(err) {
@@ -29,11 +29,11 @@ async function buscarPorId(req, res) {
 }
 
 async function atualizar(req, res) {
-    const id = +req.params.id;
+    const id_proprietario = +req.params.id_proprietario;
     let proprietario = req.body;
 
     try {
-        const proprietarioAtualizado = await proprietarioService.atualizar(id, proprietario);
+        const proprietarioAtualizado = await proprietarioService.atualizar(id_proprietario, proprietario);
         res.json(proprietarioAtualizado);
     }
     catch (err) {
@@ -42,23 +42,13 @@ async function atualizar(req, res) {
 }
 
 async function deletar(req, res) {
-    const id = +req.params.id;
+    const id_proprietario = +req.params.id_proprietario;
     try {
-        const proprietarioDeletado = await proprietarioService.deletar(id);
+        const proprietarioDeletado = await proprietarioService.deletar(id_proprietario);
         res.json(proprietarioDeletado);
     }
     catch (err) {
         res.status(err.id).json({msg: err.message});
-    }
-}
-
-async function pesquisarPorLikeNome(req, res) {
-    const nome = req.query.nome; 
-    try {
-        const proprietariosEncontrados = await proprietarioService.pesquisarPorNomeLike(nome);
-        res.json(proprietariosEncontrados);
-    } catch (err) {
-        res.status(err.id).json({ msg: err.message });
     }
 }
 
@@ -67,6 +57,5 @@ module.exports = {
     inserir,
     buscarPorId,
     atualizar,
-    deletar,
-    pesquisarPorLikeNome
+    deletar
 }
