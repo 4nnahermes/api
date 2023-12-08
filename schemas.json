@@ -1,0 +1,45 @@
+{
+    "Animal": {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "integer"
+            },
+            "nome": {
+                "type": "string"
+            },
+            "especie": {
+                "type": "string"
+            },
+            "raca": {
+                "type": "string"
+            },
+            "cor": {
+                "type": "string"
+            },
+            "id_proprietario": {
+                "type": "integer"
+            }
+        }
+    },
+    "Proprietário": {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "integer"
+            },
+            "nome": {
+                "type": "string"
+            },
+            "cpf": {
+                "type": "string"
+            },
+            "telefone": {
+                "type": "string"
+            },
+            "endereco": {
+                "type": "string"
+            }
+        }
+    }
+}

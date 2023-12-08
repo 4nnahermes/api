@@ -26,14 +26,14 @@ async function buscarPorId(id) {
         return animal;
     }
     else {
-        throw { id: 404, message: "Pet não encontrado." }
+        throw { id: 404, message: "Pet não encontrado" }
     }
 }
 
 async function atualizar(id, animalAtualizado) {
     const animal = await animalRepository.buscarPorId(id);
     if (!animal) {
-        throw { id: 404, message: "Pet não encontrado." }
+        throw { id: 404, message: "Pet não encontrado" }
     }
 
     if (animalAtualizado && animalAtualizado.nome && animalAtualizado.especie && animalAtualizado.raca && animalAtualizado.cor && animalAtualizado.id_proprietario) {
