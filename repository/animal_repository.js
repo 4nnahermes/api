@@ -5,7 +5,7 @@ const conexao = {
     port: 5432,
     database: "veterinaria",
     user: "postgres",
-    password: "password"
+    password: "123456"
 }
 
 async function listar() {
